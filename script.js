@@ -99,9 +99,17 @@ document.body.appendChild(newSection);
 
 // 2. Change background color on button click
 document.getElementById('changeColorBtn').addEventListener('click', function() {
-    const colors = ['#f0f8ff', '#fff0f5', '#f0fff0', '#fff8dc'];
+    const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEEAD', '#D4A5A5'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     document.body.style.backgroundColor = randomColor;
+    
+    // Update button text to show current color
+    this.textContent = `Change Color (${randomColor})`;
+    
+    // Reset button text after 2 seconds
+    setTimeout(() => {
+        this.textContent = 'Change Background Color';
+    }, 2000);
 });
 
 // 3. Add new list items
