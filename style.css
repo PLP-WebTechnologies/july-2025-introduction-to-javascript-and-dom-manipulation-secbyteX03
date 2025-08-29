@@ -54,8 +54,40 @@ li {
 
 /* Toggle text */
 #toggleText {
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 4px;
-    margin-top: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    margin: 15px 0;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+#toggleText.visible {
+    opacity: 1;
+    max-height: 200px; /* Adjust based on content */
+    padding: 15px;
+    margin: 15px 0;
+}
+
+#toggleText.fade {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Toggle button specific styles */
+#toggleTextBtn {
+    background-color: #4CAF50;
+    transition: all 0.2s ease;
+}
+
+#toggleTextBtn:hover {
+    background-color: #3e8e41;
+    transform: translateY(-1px);
+}
+
+#toggleTextBtn:active {
+    transform: translateY(1px);
 }

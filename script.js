@@ -120,15 +120,29 @@ document.getElementById('addItemBtn').addEventListener('click', function() {
     list.appendChild(item);
 });
 
-// 4. Toggle text visibility
+// 4. Toggle text visibility with enhanced functionality
 document.getElementById('toggleTextBtn').addEventListener('click', function() {
     const text = document.getElementById('toggleText');
-    if (text.style.display === 'none') {
-        text.style.display = 'block';
-        text.style.color = 'green';
-    } else {
-        text.style.display = 'none';
-    }
+    const isVisible = text.classList.toggle('visible');
+    
+    // Update button text based on current state
+    this.textContent = isVisible ? 'Hide Text' : 'Show Text';
+    
+    // Add animation class
+    text.classList.add('fade');
+    
+    // Remove animation class after it completes
+    setTimeout(() => {
+        text.classList.remove('fade');
+    }, 500);
+});
+
+// Initialize button text on page load
+document.addEventListener('DOMContentLoaded', function() {
+    const text = document.getElementById('toggleText');
+    const toggleBtn = document.getElementById('toggleTextBtn');
+    const isVisible = text.classList.contains('visible');
+    toggleBtn.textContent = isVisible ? 'Hide Text' : 'Show Text';
 });
 
 // Initial content
