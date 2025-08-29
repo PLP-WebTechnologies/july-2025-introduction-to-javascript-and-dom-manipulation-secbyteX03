@@ -60,6 +60,25 @@ document.getElementById('output2').innerHTML = `
     <p>${userInfo}</p>
 `;
 
+// ===== PART 3: JAVASCRIPT LOOPS =====
+
+// Example 1: for loop - Count from 1 to 5
+let countOutput = '<h3>Counting from 1 to 5:</h3><p>';
+for (let i = 1; i <= 5; i++) {
+    countOutput += `${i} `;
+}
+countOutput += '</p>';
+
+// Example 2: forEach loop - Display user hobbies
+let hobbiesOutput = '<h3>User Hobbies:</h3><ul>';
+userHobbies.forEach(hobby => {
+    hobbiesOutput += `<li>${hobby.charAt(0).toUpperCase() + hobby.slice(1)}</li>`;
+});
+hobbiesOutput += '</ul>';
+
+// Display loop outputs
+document.getElementById('output3').innerHTML = countOutput + hobbiesOutput;
+
 // 5. Simple user interaction
 let userColor = prompt('What is your favorite color?');
 if (userColor) {
