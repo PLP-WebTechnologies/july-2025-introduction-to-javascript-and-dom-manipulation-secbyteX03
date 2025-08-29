@@ -79,6 +79,57 @@ hobbiesOutput += '</ul>';
 // Display loop outputs
 document.getElementById('output3').innerHTML = countOutput + hobbiesOutput;
 
+// ===== PART 4: DOM MANIPULATION =====
+
+// 1. Create a new element and append it
+const newSection = document.createElement('section');
+newSection.id = 'part4';
+newSection.innerHTML = `
+    <h2>Part 4: DOM Manipulation</h2>
+    <div id="output4">
+        <button id="changeColorBtn">Change Background Color</button>
+        <button id="addItemBtn">Add List Item</button>
+        <button id="toggleTextBtn">Toggle Text</button>
+        <div id="dynamicContent"></div>
+        <ul id="itemList"></ul>
+        <p id="toggleText" style="display: none;">This text can be toggled!</p>
+    </div>
+`;
+document.body.appendChild(newSection);
+
+// 2. Change background color on button click
+document.getElementById('changeColorBtn').addEventListener('click', function() {
+    const colors = ['#f0f8ff', '#fff0f5', '#f0fff0', '#fff8dc'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
+});
+
+// 3. Add new list items
+document.getElementById('addItemBtn').addEventListener('click', function() {
+    const list = document.getElementById('itemList');
+    const item = document.createElement('li');
+    item.textContent = `Item ${list.children.length + 1} (Added at ${new Date().toLocaleTimeString()})`;
+    list.appendChild(item);
+});
+
+// 4. Toggle text visibility
+document.getElementById('toggleTextBtn').addEventListener('click', function() {
+    const text = document.getElementById('toggleText');
+    if (text.style.display === 'none') {
+        text.style.display = 'block';
+        text.style.color = 'green';
+    } else {
+        text.style.display = 'none';
+    }
+});
+
+// Initial content
+const dynamicContent = document.getElementById('dynamicContent');
+dynamicContent.innerHTML = `
+    <h3>Interactive Elements</h3>
+    <p>Click the buttons above to see DOM manipulation in action!</p>
+`;
+
 // 5. Simple user interaction
 let userColor = prompt('What is your favorite color?');
 if (userColor) {
