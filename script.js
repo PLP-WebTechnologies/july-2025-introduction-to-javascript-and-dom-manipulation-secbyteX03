@@ -81,21 +81,16 @@ document.getElementById('output3').innerHTML = countOutput + hobbiesOutput;
 
 // ===== PART 4: DOM MANIPULATION =====
 
-// 1. Create a new element and append it
-const newSection = document.createElement('section');
-newSection.id = 'part4';
-newSection.innerHTML = `
-    <h2>Part 4: DOM Manipulation</h2>
-    <div id="output4">
-        <button id="changeColorBtn">Change Background Color</button>
-        <button id="addItemBtn">Add List Item</button>
-        <button id="toggleTextBtn">Toggle Text</button>
-        <div id="dynamicContent"></div>
-        <ul id="itemList"></ul>
-        <p id="toggleText" style="display: none;">This text can be toggled!</p>
-    </div>
-`;
-document.body.appendChild(newSection);
+// 1. Toggle text functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggleTextBtn');
+    const toggleContent = document.getElementById('toggleText');
+    
+    toggleBtn.addEventListener('click', function() {
+        toggleContent.classList.toggle('visible');
+        this.textContent = toggleContent.classList.contains('visible') ? 'Hide Text' : 'Show Text';
+    });
+});
 
 // 2. Change background color on button click
 document.getElementById('changeColorBtn').addEventListener('click', function() {
@@ -119,38 +114,6 @@ document.getElementById('addItemBtn').addEventListener('click', function() {
     item.textContent = `Item ${list.children.length + 1} (Added at ${new Date().toLocaleTimeString()})`;
     list.appendChild(item);
 });
-
-// 4. Toggle text visibility with enhanced functionality
-document.getElementById('toggleTextBtn').addEventListener('click', function() {
-    const text = document.getElementById('toggleText');
-    const isVisible = text.classList.toggle('visible');
-    
-    // Update button text based on current state
-    this.textContent = isVisible ? 'Hide Text' : 'Show Text';
-    
-    // Add animation class
-    text.classList.add('fade');
-    
-    // Remove animation class after it completes
-    setTimeout(() => {
-        text.classList.remove('fade');
-    }, 500);
-});
-
-// Initialize button text on page load
-document.addEventListener('DOMContentLoaded', function() {
-    const text = document.getElementById('toggleText');
-    const toggleBtn = document.getElementById('toggleTextBtn');
-    const isVisible = text.classList.contains('visible');
-    toggleBtn.textContent = isVisible ? 'Hide Text' : 'Show Text';
-});
-
-// Initial content
-const dynamicContent = document.getElementById('dynamicContent');
-dynamicContent.innerHTML = `
-    <h3>Interactive Elements</h3>
-    <p>Click the buttons above to see DOM manipulation in action!</p>
-`;
 
 // 5. Simple user interaction
 let userColor = prompt('What is your favorite color?');

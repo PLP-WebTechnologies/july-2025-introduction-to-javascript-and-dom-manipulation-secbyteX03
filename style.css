@@ -7,7 +7,8 @@ body {
     padding: 20px;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #333;
 }
 
@@ -59,16 +60,18 @@ li {
     border-radius: 6px;
     margin: 15px 0;
     border-left: 4px solid #4CAF50;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     opacity: 0;
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
+    margin-top: 10px;
 }
 
 #toggleText.visible {
     opacity: 1;
-    max-height: 200px; /* Adjust based on content */
+    max-height: 200px;
+    /* Adjust based on content */
     padding: 15px;
     margin: 15px 0;
 }
@@ -77,10 +80,21 @@ li {
     transition: all 0.3s ease-in-out;
 }
 
-/* Toggle button specific styles */
+/* Ensure the toggle text is hidden by default */
+#toggleText:not(.visible) {
+    display: none;
+}
+
+/* Toggle text button styles */
 #toggleTextBtn {
     background-color: #4CAF50;
-    transition: all 0.2s ease;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 #toggleTextBtn:hover {
@@ -90,4 +104,44 @@ li {
 
 #toggleTextBtn:active {
     transform: translateY(1px);
+}
+
+/* Toggle text styles */
+.toggle-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+    background-color: #45a049;
+}
+
+.toggle-btn:active {
+    transform: translateY(1px);
+}
+
+.toggle-content {
+    display: none;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #4CAF50;
+    border-radius: 4px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toggle-content.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
