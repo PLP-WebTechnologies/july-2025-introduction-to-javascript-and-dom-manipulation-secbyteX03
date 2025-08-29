@@ -36,6 +36,30 @@ document.getElementById('output1').innerHTML = `
     <p>${message}</p>
 `;
 
+// ===== PART 2: JAVASCRIPT FUNCTIONS =====
+
+// Function 1: Calculate area of a rectangle
+function calculateArea(length, width) {
+    return length * width;
+}
+
+// Function 2: Format user information
+function formatUserInfo(name, age, isStudent) {
+    const status = isStudent ? 'a student' : 'not a student';
+    return `${name} is ${age} years old and is ${status}.`;
+}
+
+// Using the functions
+const area = calculateArea(5, 10);
+const userInfo = formatUserInfo(userName, userAge, isStudent);
+
+// Display function outputs
+document.getElementById('output2').innerHTML = `
+    <h3>Function Examples</h3>
+    <p>Area of a 5x10 rectangle: ${area} square units</p>
+    <p>${userInfo}</p>
+`;
+
 // 5. Simple user interaction
 let userColor = prompt('What is your favorite color?');
 if (userColor) {
